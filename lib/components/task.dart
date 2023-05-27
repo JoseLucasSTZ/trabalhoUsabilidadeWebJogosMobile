@@ -15,6 +15,14 @@ class Tasks extends StatefulWidget {
 
 class _TasksState extends State<Tasks> {
   int nivel = 0;
+
+  bool assetOrNetwork() {
+    if (widget.foto.contains('http')) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,10 +55,12 @@ class _TasksState extends State<Tasks> {
                       color: Colors.black26,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(4),
-                        child: Image.asset(
-                          widget.foto,
-                          fit: BoxFit.cover,
-                        ),
+                        child: assetOrNetwork()
+                            ? Image.asset(
+                                widget.foto,
+                                fit: BoxFit.cover,
+                              )
+                            : Image.network(widget.foto, fit: BoxFit.cover),
                       ),
                     ),
                     Column(
