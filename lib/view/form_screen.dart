@@ -61,11 +61,6 @@ class _FormScreenState extends State<FormScreen> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      /*   onChanged: TextFormField(
-                        onChanged: (text) {
-                          setState(() {});
-                        },
-                      ),*/
                       validator: (value) {
                         if (value!.isEmpty) {
                           return 'Insira um URL de Imagem!';
